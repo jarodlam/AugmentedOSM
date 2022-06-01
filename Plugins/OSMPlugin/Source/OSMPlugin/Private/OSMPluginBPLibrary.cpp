@@ -17,6 +17,10 @@ void UOSMPluginBPLibrary::TriangulateSimplePolygon
     TArray<int>& OutTriangles
 )
 {
+    if (VertexPositions.Num() < 3) {
+        return;
+    }
+    
     // Convert to internal non-Blueprint types
     TArray<FVector3<float>> VertexPositionsInternal;
     for (auto v : VertexPositions) {
